@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\PlayerCtrl.cs" />
     <Compile Include="Assets\Scripts\PlayerInto.cs" />
     <Compile Include="Assets\Scripts\SavePoint.cs" />
+    <Compile Include="Assets\Scripts\Word.cs" />
     <Compile Include="Assets\Scripts\togeTrigger.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/leyang/Desktop/LearnUnity/2Dgame1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

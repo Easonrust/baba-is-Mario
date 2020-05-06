@@ -37,6 +37,24 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject pfb_bullet;
     protected Vector2 bulletSpeed = new Vector2(15, 0);
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.layer == 13)
+        {
+            if (collision.contacts[0].normal.y == -1)
+            {
+                Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
+                Vector2 v = c_body.velocity;
+                v.y = 500 * Time.deltaTime;
+                c_body.velocity = v;
+                var yk = collision.gameObject.GetComponent<Word>();
+                yk.c_moveTimer = 0;
+                Debug.Log("ok");
+            }
+        }
+    }
+
     void Awake()
     {
         m_anim = GetComponent<Animator>();
