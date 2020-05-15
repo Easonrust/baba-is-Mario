@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: ab17c7fa59920f444bd491aad8d7bb5a
+guid: 01654b6f3072ccd4da38e55493f46659
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
-    second: running_0
+      213: 7366617892383084551
+    second: flower_0
   - first:
-      213: 21300002
-    second: running_1
+      213: 6799778291494461035
+    second: flower_1
   - first:
-      213: 21300004
-    second: running_2
+      213: 3830282136720419767
+    second: flower_2
   - first:
-      213: 21300006
-    second: running_3
+      213: -763546453966934497
+    second: flower_3
   - first:
-      213: 21300008
-    second: running_4
+      213: -6923931702270373470
+    second: flower_0
   - first:
-      213: -1274967292748549190
-    second: running_0
+      213: 3980333673562891971
+    second: flower_1
   - first:
-      213: -825706690200963642
-    second: running_1
+      213: -7254739150641727305
+    second: flower_2
   - first:
-      213: -3341573891944662379
-    second: running_2
+      213: 8458957773504732724
+    second: flower_3
   - first:
-      213: 5720687236895615129
-    second: running_3
+      213: -3104852342661743204
+    second: flower_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,53 +109,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: running_0
+      name: flower_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 56
+        width: 50
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab33b7790086e4ee0800000000000000
-      internalID: -1274967292748549190
+      spriteID: 2a1db152dc049ef90800000000000000
+      internalID: -6923931702270373470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_1
+      name: flower_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 50
         y: 0
-        width: 32
-        height: 56
+        width: 50
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c578e9d3208a84f0800000000000000
-      internalID: -825706690200963642
+      spriteID: 3c6ed3c236cfc3730800000000000000
+      internalID: 3980333673562891971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_2
+      name: flower_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 100
         y: 0
-        width: 32
-        height: 56
+        width: 50
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59a3bebef3850a1d0800000000000000
-      internalID: -3341573891944662379
+      spriteID: 7b871e30e2df15b90800000000000000
+      internalID: -7254739150641727305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_3
+      name: flower_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 150
         y: 0
-        width: 32
-        height: 56
+        width: 50
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,29 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99826428bb6f36f40800000000000000
-      internalID: 5720687236895615129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: running_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82305410000000000800000000000000
-      internalID: 21300008
+      spriteID: 43e57cb0741446570800000000000000
+      internalID: 8458957773504732724
       vertices: []
       indices: 
       edges: []
@@ -256,7 +199,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cd873a865d4243a4a8ea9a652b978a1e
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
