@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         {
             Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
             Vector2 v = c_body.velocity;
-            v.x = gameObject.GetComponent<Rigidbody2D>().velocity.x/Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x)*100 * Time.deltaTime;
+            v.x = gameObject.GetComponent<Rigidbody2D>().velocity.x/Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x)*500 * Time.deltaTime;
             c_body.velocity = v;
             var yk = collision.gameObject.GetComponent<Word>();
             yk.c_moveTimer = 0;

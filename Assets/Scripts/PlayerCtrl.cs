@@ -8,7 +8,7 @@ public class PlayerCtrl : MonoBehaviour
     bool m_isWalled;
 
     public LayerMask m_groundLayer;
-    public float m_groundCheckDistance = 0.4f;
+    public float m_groundCheckDistance = 1.5f;
 
     public Transform m_headCheck;
     public Transform m_footCheck;
@@ -222,5 +222,9 @@ public class PlayerCtrl : MonoBehaviour
             Destroy(gameObject);
             ui_GameOverImage.SetActive(true);
         }
+    }
+    void BeWin()
+    {
+        ui_GameOverImage.SetActive(true);
     }
 }
