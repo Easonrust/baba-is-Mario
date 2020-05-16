@@ -40,18 +40,25 @@ public class PlayerCtrl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.layer == 13)
+        if (collision.gameObject.layer == 13 || collision.gameObject.layer == 8)
         {
             if (collision.contacts[0].normal.y == -1)
             {
-                Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
-                Vector2 v = c_body.velocity;
-                v.y = 500 * Time.deltaTime;
-                c_body.velocity = v;
-                var yk = collision.gameObject.GetComponent<Word>();
-                yk.c_moveTimer = 0;
-                Debug.Log("ok");
+                m_isJumping = false;
+                m_jumpTimes = 2;
+                if (collision.gameObject.layer == 13)
+                {
+                    Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
+                    Vector2 v = c_body.velocity;
+                    v.y = 500 * Time.deltaTime;
+                    c_body.velocity = v;
+                    var yk = collision.gameObject.GetComponent<Word>();
+                    yk.c_moveTimer = 0;
+                    Debug.Log("ok");
+                }
+
             }
+
         }
     }
 
@@ -70,7 +77,7 @@ public class PlayerCtrl : MonoBehaviour
         m_jumpTimes = 0;
     }
 
-    
+
     private void Update()
     {
         m_isGrounded = IsGrounded();
@@ -97,9 +104,9 @@ public class PlayerCtrl : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("跳跃"))
+        if (Input.GetButtonDown("跳跃"))
         {
-            if(m_isGrounded)
+            if (m_isGrounded)
             {
                 m_jumpTimes = 1;
 
@@ -118,10 +125,11 @@ public class PlayerCtrl : MonoBehaviour
                 m_isGrounded = false;
                 m_vec.x = m_body.velocity.x;
                 m_body.velocity = m_vec;
+                Debug.Log(2);
             }
 
         }
-        
+
 
         if (Input.GetButtonUp("跳跃"))
         {
@@ -149,11 +157,11 @@ public class PlayerCtrl : MonoBehaviour
 
         if (m_FacingRight)
         {
-            if(h<0)
+            if (h < 0)
             {
                 Flip();
             }
-            else if(m_isWalled)
+            else if (m_isWalled)
             {
                 m_anim.SetBool("run", false);
                 return;
@@ -161,11 +169,11 @@ public class PlayerCtrl : MonoBehaviour
         }
         else
         {
-            if(h>0)
+            if (h > 0)
             {
                 Flip();
             }
-            else if(m_isWalled)
+            else if (m_isWalled)
             {
                 m_anim.SetBool("run", false);
                 return;
@@ -173,7 +181,7 @@ public class PlayerCtrl : MonoBehaviour
         }
 
         Vector2 v = m_body.velocity;
-        v.x = h * m_Speed * Time.deltaTime;        
+        v.x = h * m_Speed * Time.deltaTime;
         m_body.velocity = v;
 
 
@@ -203,7 +211,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         RaycastHit2D hit1 = Physics2D.Raycast(m_headCheck.position, dir * Vector2.right, m_wallCheckDistance, m_groundLayer);
         RaycastHit2D hit2 = Physics2D.Raycast(m_footCheck.position, dir * Vector2.right, m_wallCheckDistance, m_groundLayer);
-        if ((hit1.collider == null)&&(hit2.collider == null))
+        if ((hit1.collider == null) && (hit2.collider == null))
         {
             return false;
         }
@@ -216,7 +224,7 @@ public class PlayerCtrl : MonoBehaviour
     void BeDamaged(int damage)
     {
         m_HP -= damage;
-        if(m_HP<=0)
+        if (m_HP <= 0)
         {
             // 玩家死亡
             Destroy(gameObject);
