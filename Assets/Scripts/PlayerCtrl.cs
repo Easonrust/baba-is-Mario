@@ -50,11 +50,9 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
                     Vector2 v = c_body.velocity;
-                    v.y = 500 * Time.deltaTime;
-                    c_body.velocity = v;
-                    var yk = collision.gameObject.GetComponent<Word>();
-                    yk.c_moveTimer = 0;
-                    Debug.Log("ok");
+                    var dir = 1;
+                    Vector3 movement = new Vector3(0, dir * 1, 0);
+                    c_body.MovePosition(c_body.transform.position + movement);
                 }
 
             }

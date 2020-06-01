@@ -71,7 +71,6 @@
     <Compile Include="Assets\Scripts\PlayerInto.cs" />
     <Compile Include="Assets\Scripts\SavePoint.cs" />
     <Compile Include="Assets\Scripts\TutleTrigger.cs" />
-    <Compile Include="Assets\Scripts\Word.cs" />
     <Compile Include="Assets\Scripts\princessTrigger.cs" />
     <Compile Include="Assets\Scripts\togeTrigger.cs" />
     <Reference Include="Unity.Timeline.Editor">

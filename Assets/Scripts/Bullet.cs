@@ -12,11 +12,9 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.layer == 13)
         {
             Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 v = c_body.velocity;
-            v.x = gameObject.GetComponent<Rigidbody2D>().velocity.x/Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x)*500 * Time.deltaTime;
-            c_body.velocity = v;
-            var yk = collision.gameObject.GetComponent<Word>();
-            yk.c_moveTimer = 0;
+            var dir= gameObject.GetComponent<Rigidbody2D>().velocity.x/Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x);
+            Vector3 movement = new Vector3(dir * 1, 0,0);
+            c_body.MovePosition(c_body.transform.position+movement );
 
         }
     }
