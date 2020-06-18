@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - turtle
+  - word_turtle
+  - word_is
+  - state_kill
+  - state_win
+  - state_push
+  - state_you
+  - is
+  - flower
+  - word_flower
+  - word_on
+  - on
+  - word_Player
+  - word_slime
+  - slime
+  - duck
+  - word_duck
   layers:
   - Default
   - TransparentFX
@@ -41,18 +58,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: background
-    uniqueID: 464644549
-    locked: 0
-  - name: toge
-    uniqueID: 331306401
-    locked: 0
-  - name: wall
-    uniqueID: 84491489
+  - name: back
+    uniqueID: 763164661
     locked: 0
   - name: player
-    uniqueID: 2959744109
+    uniqueID: 4013188621
     locked: 0
   - name: front
-    uniqueID: 3962118289
+    uniqueID: 2847788235
     locked: 0
