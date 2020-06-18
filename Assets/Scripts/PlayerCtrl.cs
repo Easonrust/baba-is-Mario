@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    public string scene;
+    
+    //music
+    public AudioSource music;
+    public AudioClip shootMusic;
+    public AudioClip jumpMusic;
+
     bool m_isGrounded;
     bool m_isWalled;
 
@@ -185,6 +192,14 @@ public class PlayerCtrl : MonoBehaviour
             m_anim = GetComponent<Animator>();
         }
         m_body = GetComponent<Rigidbody2D>();
+        //给对象添加一个AudioSource组件
+        music = gameObject.AddComponent<AudioSource>();
+        //设置不一开始就播放音效
+        music.playOnAwake = false;
+        //加载音效文件，我把跳跃的音频文件命名为jump
+        shootMusic = Resources.Load<AudioClip>("music/shoot");
+        jumpMusic = Resources.Load<AudioClip>("music/jump");
+
     }
 
     // Start is called before the first frame update
@@ -244,6 +259,9 @@ public class PlayerCtrl : MonoBehaviour
 
             if (Input.GetButtonDown("跳跃"))
             {
+                music.clip = jumpMusic;
+                //播放音效
+                music.Play();
                 if (m_isGrounded)
                 {
                     m_jumpTimes = 1;
@@ -294,6 +312,10 @@ public class PlayerCtrl : MonoBehaviour
                 GameObject obj = Instantiate(pfb_bullet, transform.position, Quaternion.identity);
                 obj.GetComponent<Rigidbody2D>().velocity = m_FacingRight ? bulletSpeed : -1 * bulletSpeed;
                 obj.GetComponent<Bullet>().dir2 = m_FacingRight ? 1 : -1;
+                //把音源music的音效设置为jump
+                music.clip = shootMusic;
+                //播放音效
+                music.Play();
             }
         }
     }
@@ -394,6 +416,19 @@ public class PlayerCtrl : MonoBehaviour
     }
     void BeWin()
     {
-        ui_GameOverImage.SetActive(true);
+        //ui_GameOverImage.SetActive(true);
+        GlobalVar.levelWin = true;
+    }
+
+
+
+    private void atLoading()
+    {
+        Debug.Log("just loaded scene!");
+    }
+
+    private void atFinish()
+    {
+        Debug.Log("now its completely unblacked!");
     }
 }

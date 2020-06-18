@@ -1,13 +1,10 @@
 ﻿<Properties StartupConfiguration="{D6DB01D7-E2A2-E14E-2E1E-25E744C1502D}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerCtrl.cs">
     <Files>
-      <File FileName="Assets/Scripts/Bullet.cs" Line="15" Column="1" />
-      <File FileName="Assets/Scripts/PlayerCtrl.cs" Line="54" Column="62" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerInto.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/princessTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/togeTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TutleTrigger.cs" Line="44" Column="9" />
+      <File FileName="Assets/Scripts/ButtonChangeScene.cs" Line="33" Column="6" />
+      <File FileName="Assets/Scripts/PlayerCtrl.cs" Line="205" Column="47" />
+      <File FileName="Assets/Scripts/GlobalVar.cs" Line="8" Column="30" />
+      <File FileName="Assets/Scripts/changeScene.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="84a9d476-38f3-4b1a-a3c1-2f24aef9d594" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b3271785-1235-4780-b8e1-4dbdd85b4782" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
