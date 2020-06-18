@@ -16,13 +16,6 @@ public class TutleTrigger : MonoBehaviour
     private float init_pos_x;
     
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            other.SendMessage("BeDamaged", m_damage, SendMessageOptions.DontRequireReceiver);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +26,18 @@ public class TutleTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float off_set = transform.position.x- init_pos_x;
-        if (Mathf.Abs(off_set) >= x_limit)
+        if (!(bool)this.GetComponent<PlayerCtrl>().ctrlState["you"])
         {
-            Flip();
-        }
-        Vector2 next_pos = transform.position;
-        next_pos.x += speed*Time.deltaTime;
+            float off_set = transform.position.x - init_pos_x;
+            if (Mathf.Abs(off_set) >= x_limit)
+            {
+                Flip();
+            }
+            Vector2 next_pos = transform.position;
+            next_pos.x += speed * Time.deltaTime;
 
-        transform.position = next_pos;
+            transform.position = next_pos;
+        }
     }
 
     void Flip()
