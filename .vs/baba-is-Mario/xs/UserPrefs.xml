@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{D6DB01D7-E2A2-E14E-2E1E-25E744C1502D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerCtrl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ButtonChangeScene.cs">
     <Files>
       <File FileName="Assets/Scripts/ButtonChangeScene.cs" Line="33" Column="6" />
-      <File FileName="Assets/Scripts/PlayerCtrl.cs" Line="205" Column="47" />
-      <File FileName="Assets/Scripts/GlobalVar.cs" Line="8" Column="30" />
-      <File FileName="Assets/Scripts/changeScene.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerCtrl.cs" />
+      <File FileName="Assets/Scripts/GlobalVar.cs" Line="8" Column="40" />
+      <File FileName="Assets/Scripts/changeScene.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +12,7 @@
           <Node name="baba-is-Mario" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerCtrl.cs" selected="True" />
+                <Node name="ButtonChangeScene.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -22,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b3271785-1235-4780-b8e1-4dbdd85b4782" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="52082a4a-20ac-4fb9-8acf-24f8ce3d3890" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
