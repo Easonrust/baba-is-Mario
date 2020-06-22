@@ -36,8 +36,8 @@ TagManager:
   - Events
   - Save
   - word
-  - 
-  - 
+  - GameStart
+  - GameQuit
   - 
   - 
   - 

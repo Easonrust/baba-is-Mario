@@ -196,6 +196,7 @@ public class PlayerCtrl : MonoBehaviour
         music = gameObject.AddComponent<AudioSource>();
         //设置不一开始就播放音效
         music.playOnAwake = false;
+        music.volume = 0.2f;
         //加载音效文件，我把跳跃的音频文件命名为jump
         shootMusic = Resources.Load<AudioClip>("music/shoot");
         jumpMusic = Resources.Load<AudioClip>("music/jump");

@@ -86,6 +86,19 @@ public class Bullet : MonoBehaviour
             }
 
         }
+        if (collision.gameObject.layer == 14) {
+            Destroy(gameObject);
+            Debug.Log("START");
+            BlackFader.GoToScene("0-1", UnityEngine.SceneManagement.LoadSceneMode.Single, 2f, atLoading, atFinish);
+        }
+        if (collision.gameObject.layer == 15)
+        {
+            Destroy(gameObject);
+            Debug.Log("QUIT");
+            UnityEditor.EditorApplication.isPlaying = false;
+
+        }
+
     }
 
     void Start()
@@ -100,5 +113,15 @@ public class Bullet : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = dir2 * bulletSpeed;
         }
+    }
+
+    private void atLoading()
+    {
+        Debug.Log("just loaded scene!");
+    }
+
+    private void atFinish()
+    {
+        Debug.Log("now its completely unblacked!");
     }
 }
