@@ -1,8 +1,6 @@
 ﻿using JudgeTrigger;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+
 
 public class Bullet : MonoBehaviour
 {
@@ -10,11 +8,50 @@ public class Bullet : MonoBehaviour
     private GameObject[] obj;
     public float dir2; 
     protected Vector2 bulletSpeed = new Vector2(15, 0);
+    public AudioClip moveMusic;
+    public AudioClip finishMusic;
+    void Awake()
+    {
+        moveMusic = Resources.Load<AudioClip>("music/wordMove"); 
+        finishMusic = Resources.Load<AudioClip>("music/wordFinish");
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.layer == 14)
+        {
+            AudioSource.PlayClipAtPoint(moveMusic, gameObject.transform.localPosition);
+            AudioSource.PlayClipAtPoint(finishMusic, gameObject.transform.localPosition);
+            Destroy(gameObject);
+            Debug.Log("START");
+            Vector3 newPosition = new Vector3(2.17f, collision.gameObject.transform.localPosition.y, collision.gameObject.transform.localPosition.z);
+            collision.gameObject.transform.localPosition = newPosition;
+            GlobalVar.changeScene = true;
+            BlackFader.GoToScene("0-1", UnityEngine.SceneManagement.LoadSceneMode.Single, 2f, atLoading, atFinish);
+        }
+        if (collision.gameObject.layer == 15)
+        {
+            AudioSource.PlayClipAtPoint(moveMusic, gameObject.transform.localPosition);
+            AudioSource.PlayClipAtPoint(finishMusic, gameObject.transform.localPosition);
+            Destroy(gameObject);
+            Vector3 newPosition = new Vector3(2.17f, collision.gameObject.transform.localPosition.y, collision.gameObject.transform.localPosition.z);
+            collision.gameObject.transform.localPosition = newPosition;
+            Debug.Log("QUIT");
+            #if UNITY_EDITOR
+                        UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                                Application.Quit();
+            #endif
+
+        }
+
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 13)
         {
+            AudioSource.PlayClipAtPoint(moveMusic, gameObject.transform.localPosition);
             Destroy(gameObject);
             Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
             //var dir = gameObject.GetComponent<Rigidbody2D>().velocity.x / Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x);
@@ -66,6 +103,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["push"])
         {
+            AudioSource.PlayClipAtPoint(moveMusic, gameObject.transform.localPosition);
             Destroy(gameObject);
             if ((dir2 < 0 && collision.gameObject.GetComponent<ValidJudge>().leftMovable) || (dir2 > 0 && collision.gameObject.GetComponent<ValidJudge>().rightMovable))
             {
@@ -86,19 +124,6 @@ public class Bullet : MonoBehaviour
             }
 
         }
-        if (collision.gameObject.layer == 14) {
-            Destroy(gameObject);
-            Debug.Log("START");
-            BlackFader.GoToScene("0-1", UnityEngine.SceneManagement.LoadSceneMode.Single, 2f, atLoading, atFinish);
-        }
-        if (collision.gameObject.layer == 15)
-        {
-            Destroy(gameObject);
-            Debug.Log("QUIT");
-            UnityEditor.EditorApplication.isPlaying = false;
-
-        }
-
     }
 
     void Start()

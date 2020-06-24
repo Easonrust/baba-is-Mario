@@ -72,6 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &9215031612278267808
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &9215031612353512115
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &9215031612483171820
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &9215031612875079976
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +309,7 @@ GameObject:
   - component: {fileID: 9215031612875079990}
   - component: {fileID: 9215031612875079977}
   - component: {fileID: 9215031612875079989}
+  - component: {fileID: -6442391836953359856}
   m_Layer: 13
   m_Name: word_player
   m_TagString: word_Player
@@ -363,9 +372,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -281778675
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3f68a5b436f3f0e478cc3f66efea3c8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 653c5f4b3c9485c47b374549bb9800b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -414,7 +423,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.984375, y: 0.984375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.63, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -447,3 +456,22 @@ MonoBehaviour:
   dealWithRightExit: 0
   dealWithUpExit: 0
   dealWithDownExit: 0
+--- !u!95 &-6442391836953359856
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215031612875079976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d93f19536c4c52a43984f7f36c34d472, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

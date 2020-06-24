@@ -72,6 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &5626886979102457250
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +87,7 @@ GameObject:
   - component: {fileID: 5626886979102457276}
   - component: {fileID: 5626886979102457251}
   - component: {fileID: 5626886979102457279}
+  - component: {fileID: 8568363810512603788}
   m_Layer: 13
   m_Name: nail
   m_TagString: word_on
@@ -147,9 +150,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -281778675
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da627d3a98bd7724a97f6a5756ad6418, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7a35f3d1e0fcea4cb3cb1ad246f357e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,7 +201,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.984375, y: 1}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.63, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -226,10 +229,30 @@ MonoBehaviour:
   upMovable: 1
   leftMovable: 1
   rightMovable: 1
+  downMovable: 1
   dealWithLeftExit: 0
   dealWithRightExit: 0
   dealWithUpExit: 0
   dealWithDownExit: 0
+--- !u!95 &8568363810512603788
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626886979102457250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d93f19536c4c52a43984f7f36c34d472, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5626886979486858809
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &5626886979562070826
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &5626886979626419245
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,3 +473,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}

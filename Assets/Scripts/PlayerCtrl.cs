@@ -11,12 +11,15 @@ public class PlayerCtrl : MonoBehaviour
     public AudioSource music;
     public AudioClip shootMusic;
     public AudioClip jumpMusic;
+    public AudioClip upMusic;
+    public AudioClip winMusic;
+    public AudioClip killMusic;
 
     bool m_isGrounded;
     bool m_isWalled;
 
     public LayerMask m_groundLayer;
-    public float m_groundCheckDistance = 1.5f;
+    public float m_groundCheckDistance = 0.5f;
 
     public Transform m_headCheck;
     public Transform m_footCheck;
@@ -55,13 +58,14 @@ public class PlayerCtrl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if ((bool)ctrlState["kill"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["you"])
+        if ((bool)ctrlState["kill"] && (collision.gameObject.layer == 9 || collision.gameObject.layer == 17) && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["you"])
         {
+            AudioSource.PlayClipAtPoint(killMusic, gameObject.transform.localPosition);
             collision.gameObject.GetComponent<PlayerCtrl>().BeDamaged(10);
         }
-        if ((bool)ctrlState["win"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["you"])
+        else if ((bool)ctrlState["win"] && (collision.gameObject.layer == 9 || collision.gameObject.layer == 17) && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["you"])
         {
+            music.Play();
             collision.gameObject.GetComponent<PlayerCtrl>().BeWin();
         }
         if ((bool)ctrlState["you"] && collision.gameObject.layer == 13 || collision.gameObject.layer == 8)
@@ -71,7 +75,10 @@ public class PlayerCtrl : MonoBehaviour
                 m_isJumping = false;
                 if (collision.gameObject.layer == 13 && collision.gameObject.GetComponent<ValidJudge>().upMovable)
                 {
-
+                    AudioSource.PlayClipAtPoint(upMusic, gameObject.transform.localPosition);
+                    //music.clip = upMusic;
+                    ////播放音效
+                    //music.Play();
                     Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
                     Vector2 v = c_body.velocity;
                     var dir = 1;
@@ -118,70 +125,30 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        AudioSource.PlayClipAtPoint(killMusic, gameObject.transform.localPosition);
+        BeDamaged(10);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((bool)ctrlState["you"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["kill"])
         {
-            Debug.Log(gameObject.name);
-            Debug.Log(collision.gameObject.name);
+            AudioSource.PlayClipAtPoint(killMusic, gameObject.transform.localPosition);
             BeDamaged(10);
         }
-        if ((bool)ctrlState["you"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["kill"])
+        else if ((bool)ctrlState["you"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["win"])
         {
             BeWin();
         }
-        //if ((bool)ctrlState["you"] && collision.gameObject.layer == 13 || collision.gameObject.layer == 8)
-        //{
-        //    if (collision.contacts[0].normal.y == -1)
-        //    {
-        //        m_isJumping = false;
-        //        if (collision.gameObject.layer == 13 && collision.gameObject.GetComponent<ValidJudge>().upMovable)
-        //        {
-
-        //            Rigidbody2D c_body = collision.gameObject.GetComponent<Rigidbody2D>();
-        //            Vector2 v = c_body.velocity;
-        //            var dir = 1;
-        //            Vector3 movement = new Vector3(0, dir * 1, 0);
-        //            if (collision.gameObject.GetComponent<ValidJudge>().leftWord != "none")
-        //            {
-        //                collision.gameObject.GetComponent<ValidJudge>().dealWithLeftExit = true;
-        //            }
-        //            if (collision.gameObject.GetComponent<ValidJudge>().rightWord != "none")
-        //            {
-        //                collision.gameObject.GetComponent<ValidJudge>().dealWithRightExit = true;
-        //            }
-        //            if (collision.gameObject.tag == "is")
-        //            {
-        //                if (collision.gameObject.GetComponent<ValidJudge>().upWord.IndexOf("word") != -1 && collision.gameObject.GetComponent<ValidJudge>().downWord.IndexOf("state") != -1)
-        //                {
-        //                    obj = GameObject.FindGameObjectsWithTag(collision.gameObject.GetComponent<ValidJudge>().upWord.Split('_')[1]);
-        //                    for (int i = 0; i < obj.Length; i++)
-        //                    {
-        //                        obj[i].GetComponent<PlayerCtrl>().ctrlState[collision.gameObject.GetComponent<ValidJudge>().downWord.Split('_')[1]] = false;
-        //                    }
-        //                }
-        //                if (collision.gameObject.GetComponent<ValidJudge>().leftWord.IndexOf("word") != -1 && collision.gameObject.GetComponent<ValidJudge>().rightWord.IndexOf("state") != -1)
-        //                {
-        //                    obj = GameObject.FindGameObjectsWithTag(collision.gameObject.GetComponent<ValidJudge>().leftWord.Split('_')[1]);
-        //                    for (int i = 0; i < obj.Length; i++)
-        //                    {
-        //                        obj[i].GetComponent<PlayerCtrl>().ctrlState[collision.gameObject.GetComponent<ValidJudge>().rightWord.Split('_')[1]] = false;
-        //                    }
-        //                }
-        //            }
-        //            collision.gameObject.GetComponent<ValidJudge>().upMovable = true;
-        //            collision.gameObject.GetComponent<ValidJudge>().leftMovable = true;
-        //            collision.gameObject.GetComponent<ValidJudge>().rightMovable = true;
-        //            collision.gameObject.GetComponent<ValidJudge>().upWord = "none";
-        //            collision.gameObject.GetComponent<ValidJudge>().leftWord = "none";
-        //            collision.gameObject.GetComponent<ValidJudge>().downWord = "none";
-        //            collision.gameObject.GetComponent<ValidJudge>().rightWord = "none";
-        //            c_body.MovePosition(c_body.transform.position + movement);
-        //        }
-
-        //    }
-
-        //}
+        if ((bool)ctrlState["you"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["float"])
+        {
+            m_jumpTimes = 1;
+        }
+        if ((bool)ctrlState["you"] && collision.gameObject.layer == 16)
+        {
+            AudioSource.PlayClipAtPoint(killMusic, gameObject.transform.localPosition);
+        }
     }
 
     void Awake()
@@ -196,10 +163,14 @@ public class PlayerCtrl : MonoBehaviour
         music = gameObject.AddComponent<AudioSource>();
         //设置不一开始就播放音效
         music.playOnAwake = false;
-        music.volume = 0.2f;
+        music.volume = 1.0f;
         //加载音效文件，我把跳跃的音频文件命名为jump
         shootMusic = Resources.Load<AudioClip>("music/shoot");
         jumpMusic = Resources.Load<AudioClip>("music/jump");
+        upMusic = Resources.Load<AudioClip>("music/wordMove");
+        winMusic = Resources.Load<AudioClip>("music/win");
+        killMusic = Resources.Load<AudioClip>("music/kill2");
+        music.clip = winMusic;
 
     }
 
@@ -222,12 +193,13 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Update()
     {
-        if ((bool)ctrlState["you"])
+        if ((bool)ctrlState["you"] && (!GlobalVar.levelWin && !GlobalVar.changeScene && !GlobalVar.bossSpeaking))
         {
 
             m_isGrounded = IsGrounded();
 
-
+            #region 跳跃代码
+            // 跳跃
             if (gameObject.name == "player")
             {
 
@@ -237,13 +209,10 @@ public class PlayerCtrl : MonoBehaviour
                 }
             }
 
-            if(m_jumpTimes == 2 && m_isGrounded)
+            if (m_jumpTimes == 2 && m_isGrounded)
             {
                 m_jumpTimes = 0;
             }
-
-            #region 跳跃代码
-            // 跳跃
             if (m_isJumping && Input.GetButton("跳跃"))
             {
                 if (m_JumpTimer <= m_CanJumpTime)
@@ -260,11 +229,9 @@ public class PlayerCtrl : MonoBehaviour
 
             if (Input.GetButtonDown("跳跃"))
             {
-                music.clip = jumpMusic;
-                //播放音效
-                music.Play();
                 if (m_isGrounded)
                 {
+                    AudioSource.PlayClipAtPoint(jumpMusic, gameObject.transform.localPosition, 0.3f);
                     m_jumpTimes = 1;
 
                     m_isJumping = true;
@@ -275,6 +242,7 @@ public class PlayerCtrl : MonoBehaviour
                 }
                 else if (m_jumpTimes == 1 || m_jumpTimes == 0)
                 {
+                    AudioSource.PlayClipAtPoint(jumpMusic, gameObject.transform.localPosition, 0.3f);
                     m_jumpTimes = 2;
 
                     if (gameObject.name == "player")
@@ -304,20 +272,21 @@ public class PlayerCtrl : MonoBehaviour
             }
             #endregion
 
-
+            #region 移动代码
             m_input_h = Input.GetAxisRaw("水平移动");
             Move(m_input_h);
+            #endregion
 
+            #region 射击代码
             if (Input.GetButtonDown("射击"))
             {
                 GameObject obj = Instantiate(pfb_bullet, transform.position, Quaternion.identity);
                 obj.GetComponent<Rigidbody2D>().velocity = m_FacingRight ? bulletSpeed : -1 * bulletSpeed;
                 obj.GetComponent<Bullet>().dir2 = m_FacingRight ? 1 : -1;
                 //把音源music的音效设置为jump
-                music.clip = shootMusic;
-                //播放音效
-                music.Play();
+                AudioSource.PlayClipAtPoint(shootMusic, gameObject.transform.localPosition);
             }
+            #endregion
         }
     }
 
@@ -377,12 +346,14 @@ public class PlayerCtrl : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, m_groundCheckDistance, m_groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, m_groundLayer);
         if (hit.collider != null)
         {
+
             return true;
         }
         return false;
+
     }
 
     private bool IsWalled(float dir)
@@ -399,14 +370,13 @@ public class PlayerCtrl : MonoBehaviour
     public int m_HP = 10;
     public GameObject ui_GameOverImage;
 
-    void BeDamaged(int damage)
+    public void BeDamaged(int damage)
     {
         m_HP -= damage;
         if (m_HP <= 0)
         {
             // 玩家死亡
             GlobalVar.playerCtrlNum--;
-            Debug.Log("left " + GlobalVar.playerCtrlNum);
             Destroy(gameObject);
             if (GlobalVar.playerCtrlNum <= 0)
             {
@@ -415,9 +385,31 @@ public class PlayerCtrl : MonoBehaviour
             //ui_GameOverImage.SetActive(true);
         }
     }
-    void BeWin()
+
+    public void BeDamagedAndPlay(int damage)
+    {
+        m_HP -= damage;
+        if (m_HP <= 0)
+        {
+            // 玩家死亡
+            GlobalVar.playerCtrlNum--;
+            Destroy(gameObject);
+            if (GlobalVar.playerCtrlNum <= 0)
+            {
+                AudioSource.PlayClipAtPoint(killMusic, gameObject.transform.localPosition);
+                ui_GameOverImage.SetActive(true);
+            }
+            //ui_GameOverImage.SetActive(true);
+        }
+    }
+    public void BeWin()
     {
         //ui_GameOverImage.SetActive(true);
+        GlobalVar.levelWin = true;
+    }
+    public void BeWinAndPlay()
+    {
+        music.Play();
         GlobalVar.levelWin = true;
     }
 

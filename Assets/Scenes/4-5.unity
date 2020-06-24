@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 864, y: -536}
+  m_AnchoredPosition: {x: 799, y: -508}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333373021
@@ -309,7 +309,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -525,7 +525,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00010872, y: 0}
-  m_SizeDelta: {x: 2048, y: 1135}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459033777
 MonoBehaviour:
@@ -598,8 +598,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -296.2, y: 345}
-  m_SizeDelta: {x: 1019.8, y: 279.7}
+  m_AnchoredPosition: {x: -290, y: 338}
+  m_SizeDelta: {x: 1060.6, y: 331.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511712743
 MonoBehaviour:
@@ -634,9 +634,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 1
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 3
@@ -645,9 +645,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Maskr at last accept the invitation. The Finding Pig Alliance expands now.
-    With growing strength and growing confidence, they get prepared for the final
-    hunt.
+  m_Text: 'By learning from Maskr, Lele make great progress. Now he knows better
+    how to control the fantastic world.
+
+    
+
+    With growing strength and confidence,
+    Lele gets prepared for the final fight!
+
+'
 --- !u!222 &1511712745
 CanvasRenderer:
   m_ObjectHideFlags: 0

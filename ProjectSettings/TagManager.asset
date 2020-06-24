@@ -21,6 +21,13 @@ TagManager:
   - slime
   - duck
   - word_duck
+  - word_pig
+  - pig
+  - word_mask
+  - mask
+  - state_float
+  - state_hurt
+  - state_none
   layers:
   - Default
   - TransparentFX
@@ -36,11 +43,11 @@ TagManager:
   - Events
   - Save
   - word
-  - GameStart
-  - GameQuit
-  - 
-  - 
-  - 
+  - start
+  - quit
+  - outDie
+  - boss
+  - bossPlayer
   - 
   - 
   - 
@@ -55,9 +62,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: back
     uniqueID: 763164661
     locked: 0
@@ -66,4 +70,10 @@ TagManager:
     locked: 0
   - name: front
     uniqueID: 2847788235
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: player2
+    uniqueID: 2757309779
     locked: 0

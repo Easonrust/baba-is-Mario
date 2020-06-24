@@ -72,6 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &4380162841033027666
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &4380162841170233926
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &4380162841300122905
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direct: 
   validJudge: {fileID: 0}
+  finishMusic: {fileID: 0}
+  music: {fileID: 0}
 --- !u!1 &4380162841490541021
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +309,7 @@ GameObject:
   - component: {fileID: 4380162841490540995}
   - component: {fileID: 4380162841490541020}
   - component: {fileID: 4380162841490540992}
+  - component: {fileID: 5165068527626325955}
   m_Layer: 13
   m_Name: turtle
   m_TagString: word_turtle
@@ -362,10 +371,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -281778675
+  m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fae8b7623561b2a4da91a3a9bfd94d04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4bffe8da6d9fced45ac462211b831bb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -442,7 +451,27 @@ MonoBehaviour:
   upMovable: 1
   leftMovable: 1
   rightMovable: 1
+  downMovable: 1
   dealWithLeftExit: 0
   dealWithRightExit: 0
   dealWithUpExit: 0
   dealWithDownExit: 0
+--- !u!95 &5165068527626325955
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4380162841490541021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d93f19536c4c52a43984f7f36c34d472, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

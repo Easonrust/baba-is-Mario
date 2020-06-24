@@ -170,6 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0196be6168b634fbd42166b0b246fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: 
+  music: {fileID: 0}
+  shootMusic: {fileID: 0}
+  jumpMusic: {fileID: 0}
+  upMusic: {fileID: 0}
+  winMusic: {fileID: 0}
   m_groundLayer:
     serializedVersion: 2
     m_Bits: 8448
@@ -180,7 +186,7 @@ MonoBehaviour:
   m_Speed: 600
   m_jumpForce: 7
   m_CanJumpTime: 0.3
-  is_player: 1
+  is_player: 0
   is_kill: 0
   is_win: 0
   is_push: 0

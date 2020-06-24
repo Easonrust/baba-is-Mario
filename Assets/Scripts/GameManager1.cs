@@ -18,7 +18,7 @@ public class GameManager2 : MonoBehaviour
         if (Input.GetButtonDown("重新开始"))
         {
             GlobalVar.playerCtrlNum = 0;
-            SceneManager.LoadScene("level4");
+            SceneManager.LoadScene("level3");
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class TypewriterEffect : MonoBehaviour
 {
 
-    public float charsPerSecond = 0.2f;//打字时间间隔
+    public float charsPerSecond = 0.02f;//打字时间间隔
     private string words;//保存需要显示的文字
 
     private bool isActive = false;
@@ -18,7 +18,7 @@ public class TypewriterEffect : MonoBehaviour
     {
         timer = 0;
         isActive = true;
-        charsPerSecond = Mathf.Max(0.2f, charsPerSecond);
+        charsPerSecond = Mathf.Max(0.02f, charsPerSecond);
         myText = GetComponent<Text>();
         words = myText.text;
         myText.text = "";//获取Text的文本信息，保存到words中，然后动态更新文本显示内容，实现打字机的效果
@@ -44,7 +44,7 @@ public class TypewriterEffect : MonoBehaviour
         if (isActive)
         {
             timer += Time.deltaTime;
-            if (timer >= charsPerSecond)
+            if (timer >= 0.03f)
             {//判断计时器时间是否到达
                 timer = 0;
                 currentPos++;

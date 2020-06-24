@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9.17883
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -199,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 929007626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5846, y: 1.5846, z: 1.5846}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 864, y: -536}
+  m_AnchoredPosition: {x: 799, y: -507}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206448396
@@ -448,8 +448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.9, y: 246.7}
-  m_SizeDelta: {x: 1652.4, y: 403}
+  m_AnchoredPosition: {x: 0, y: 247.19998}
+  m_SizeDelta: {x: 1652.4, y: 585.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266139364
 MonoBehaviour:
@@ -473,7 +473,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
     m_FontStyle: 1
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 3
@@ -482,11 +482,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Long long time ago, there was a small cute farm, where Lele lead a peaceful
-    life with his pig Zhuzhu. But one morning, Lele woke up without hearing his pig
-    squealling. He rushed out but found nothing except a string of footprints leading
-    to the mist. Without hesitation, Lele steped on the dangerous and fantastic journey
-    of finding his pig.
+  m_Text: "Long long time ago, there was a small cute farm, where Lele lead a peaceful
+    life with his pig Zhuzhu. \n\nBut one morning, Lele woke up without hearing his
+    pig squealling. He rushed out but found nothing except a string of footprints
+    leading to the mist. \n\nWithout hesitation, Lele steped on the dangerous and
+    fantastic journey of finding his pig."
 --- !u!222 &1266139365
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -720,8 +720,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00010872, y: 0}
-  m_SizeDelta: {x: 2048, y: 1135}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143643843
 MonoBehaviour:
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea632f774387849fc83f684c265e3e42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb2a870495c4b44bda27e17d902a7a5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -9,11 +9,17 @@ namespace JudgeTrigger
         public string Direct; //当前触发器是哪个方向的
         public ValidJudge validJudge;
         private GameObject[] obj;
-        private string oldLeft = "none";
-        private string oldRight = "none";
-        private string oldUp = "none";
-        private string oldDown = "none";
-
+        public AudioClip finishMusic;
+        public AudioSource music;
+        void Awake()
+        {
+            finishMusic = Resources.Load<AudioClip>("music/wordFinish");
+            music = gameObject.AddComponent<AudioSource>();
+            music.clip = finishMusic;
+            //设置不一开始就播放音效
+            music.playOnAwake = false;
+            music.volume = 0.2f;
+        }
         // Start is called before the first frame update
         void Start()
         {
@@ -37,12 +43,30 @@ namespace JudgeTrigger
                     validJudge.upWord = collision.gameObject.tag;
                     if (validJudge.upWord.IndexOf("word") != -1 && validJudge.downWord.IndexOf("state") != -1)
                     {
+                        if (validJudge.upWord == "word_pig" && validJudge.downWord == "state_hurt")
+                        {
+                            GlobalVar.roundWin = true;
+                        }
+                        else if (validJudge.upWord == "word_Player" && validJudge.downWord == "state_hurt")
+                        {
+                            GlobalVar.roundLose = true;
+                        }
+                        else if (validJudge.upWord == "word_pig" && validJudge.downWord == "state_you")
+                        {
+                            GlobalVar.bossIsYou = true;
+                        }
+                        music.Play();
                         obj = GameObject.FindGameObjectsWithTag(validJudge.upWord.Split('_')[1]);
                         for (int i = 0; i < obj.Length; i++)
                         {
                             if(validJudge.downWord == "state_you")
                             {
                                 GlobalVar.playerCtrlNum++;
+                                obj[i].GetComponent<CapsuleCollider2D>().isTrigger = false;
+                                if(validJudge.upWord == "word_on")
+                                {
+                                    obj[i].GetComponent<Rigidbody2D>().gravityScale = 1.4f;
+                                }
                             }
                             if (validJudge.downWord == "state_push")
                             {
@@ -58,13 +82,30 @@ namespace JudgeTrigger
 
                     if (validJudge.leftWord.IndexOf("word") != -1 && validJudge.rightWord.IndexOf("state") != -1)
                     {
+                        if (validJudge.leftWord == "word_pig" && validJudge.rightWord == "state_hurt")
+                        {
+                            GlobalVar.roundWin = true;
+                        } 
+                        else if (validJudge.leftWord == "word_Player" && validJudge.rightWord == "state_hurt")
+                        {
+                            GlobalVar.roundLose = true;
+                        }
+                        else if (validJudge.leftWord == "word_pig" && validJudge.rightWord == "state_you")
+                        {
+                            GlobalVar.bossIsYou = true;
+                        }
+                        music.Play();
                         obj = GameObject.FindGameObjectsWithTag(validJudge.leftWord.Split('_')[1]);
                         for (int i = 0; i < obj.Length; i++)
                         {
                             if (validJudge.rightWord == "state_you")
                             {
-                                Debug.Log("left you++");
                                 GlobalVar.playerCtrlNum++;
+                                obj[i].GetComponent<CapsuleCollider2D>().isTrigger = false;
+                                if (validJudge.leftWord == "word_on")
+                                {
+                                    obj[i].GetComponent<Rigidbody2D>().gravityScale = 1.4f;
+                                }
                             }
                             if (validJudge.rightWord == "state_push")
                             {
@@ -80,13 +121,30 @@ namespace JudgeTrigger
 
                     if (validJudge.leftWord.IndexOf("word") != -1 && validJudge.rightWord.IndexOf("state") != -1)
                     {
+                        if (validJudge.leftWord == "word_pig" && validJudge.rightWord == "state_hurt")
+                        {
+                            GlobalVar.roundWin = true;
+                        }
+                        else if (validJudge.leftWord == "word_Player" && validJudge.rightWord == "state_hurt")
+                        {
+                            GlobalVar.roundLose = true;
+                        }
+                        else if (validJudge.leftWord == "word_pig" && validJudge.rightWord == "state_you")
+                        {
+                            GlobalVar.bossIsYou = true;
+                        }
+                        music.Play();
                         obj = GameObject.FindGameObjectsWithTag(validJudge.leftWord.Split('_')[1]);
                         for (int i = 0; i < obj.Length; i++)
                         {
                             if (validJudge.rightWord == "state_you")
                             {
-                                Debug.Log("right you++");
                                 GlobalVar.playerCtrlNum++;
+                                obj[i].GetComponent<CapsuleCollider2D>().isTrigger = false;
+                                if (validJudge.leftWord == "word_on")
+                                {
+                                    obj[i].GetComponent<Rigidbody2D>().gravityScale = 1.4f;
+                                }
                             }
                             if (validJudge.rightWord == "state_push")
                             {
@@ -101,13 +159,30 @@ namespace JudgeTrigger
                     validJudge.downWord = collision.gameObject.tag;
                     if (validJudge.upWord.IndexOf("word") != -1 && validJudge.downWord.IndexOf("state") != -1)
                     {
+                        if (validJudge.upWord == "word_pig" && validJudge.downWord == "state_hurt")
+                        {
+                            GlobalVar.roundWin = true;
+                        }
+                        else if (validJudge.upWord == "word_Player" && validJudge.downWord == "state_hurt")
+                        {
+                            GlobalVar.roundLose = true;
+                        }
+                        else if (validJudge.upWord == "word_pig" && validJudge.downWord == "state_you")
+                        {
+                            GlobalVar.bossIsYou = true;
+                        }
+                        music.Play();
                         obj = GameObject.FindGameObjectsWithTag(validJudge.upWord.Split('_')[1]);
                         for (int i = 0; i < obj.Length; i++)
                         {
                             if (validJudge.downWord == "state_you")
                             {
-                                Debug.Log("down you++");
                                 GlobalVar.playerCtrlNum++;
+                                obj[i].GetComponent<CapsuleCollider2D>().isTrigger = false;
+                                if (validJudge.upWord == "word_on")
+                                {
+                                    obj[i].GetComponent<Rigidbody2D>().gravityScale = 1.4f;
+                                }
                             }
                             if (validJudge.downWord == "state_push")
                             {
@@ -151,12 +226,10 @@ namespace JudgeTrigger
                         {
                             if (collision.GetComponent<ValidJudge>().rightWord == "state_you")
                             {
-                                Debug.Log("you--"); 
                                 GlobalVar.playerCtrlNum--;
                             }
                             if (collision.GetComponent<ValidJudge>().rightWord == "state_push")
                             {
-                                Debug.Log("left push");
                                 obj[i].GetComponent<CapsuleCollider2D>().isTrigger = true;
                             }
                             obj[i].GetComponent<PlayerCtrl>().ctrlState[collision.GetComponent<ValidJudge>().rightWord.Split('_')[1]] = false;
@@ -175,12 +248,10 @@ namespace JudgeTrigger
                         {
                             if (collision.GetComponent<ValidJudge>().rightWord == "state_you")
                             {
-                                Debug.Log("you--");
                                 GlobalVar.playerCtrlNum--;
                             }
                             if (collision.GetComponent<ValidJudge>().rightWord == "state_push")
                             {
-                                Debug.Log("right push");
                                 obj[i].GetComponent<CapsuleCollider2D>().isTrigger = true;
                             }
                             obj[i].GetComponent<PlayerCtrl>().ctrlState[collision.GetComponent<ValidJudge>().rightWord.Split('_')[1]] = false;
@@ -199,12 +270,10 @@ namespace JudgeTrigger
                         {
                             if (collision.GetComponent<ValidJudge>().downWord == "state_you")
                             {
-                                Debug.Log("you--");
                                 GlobalVar.playerCtrlNum--;
                             }
                             if (collision.GetComponent<ValidJudge>().downWord == "state_push")
                             {
-                                Debug.Log("up push");
                                 obj[i].GetComponent<CapsuleCollider2D>().isTrigger = true;
                             }
                             obj[i].GetComponent<PlayerCtrl>().ctrlState[collision.GetComponent<ValidJudge>().downWord.Split('_')[1]] = false;
@@ -222,12 +291,10 @@ namespace JudgeTrigger
                         {
                             if (collision.GetComponent<ValidJudge>().downWord == "state_you")
                             {
-                                Debug.Log("you--");
                                 GlobalVar.playerCtrlNum--;
                             }
                             if (collision.GetComponent<ValidJudge>().downWord == "state_push")
                             {
-                                Debug.Log("down push");
                                 obj[i].GetComponent<CapsuleCollider2D>().isTrigger = true;
                             }
                             obj[i].GetComponent<PlayerCtrl>().ctrlState[collision.GetComponent<ValidJudge>().downWord.Split('_')[1]] = false;
@@ -264,81 +331,6 @@ namespace JudgeTrigger
 
             }
         }
-
-        //private void OnTriggerExit2D (Collider2D other)
-        //{
-        //    //if (other.gameObject.layer == 13)
-        //    //{
-        //    //    switch (Direct)
-        //    //    {
-        //    //        case "up":
-        //    //            if (validJudge.upWord.IndexOf("word") != -1 && validJudge.downWord.IndexOf("state") != -1)
-        //    //            {
-        //    //                Debug.Log("out " + validJudge.upWord.Split('_')[1] + " " + validJudge.downWord.Split('_')[1]);
-        //    //                obj = GameObject.FindGameObjectsWithTag(validJudge.upWord.Split('_')[1]);
-        //    //                for (int i = 0; i < obj.Length; i++)
-        //    //                {
-        //    //                    obj[i].GetComponent<PlayerCtrl>().ctrlState[validJudge.downWord.Split('_')[1]] = false;
-        //    //                }
-        //    //            }
-        //    //            validJudge.upWord = "none";
-        //    //            break;
-        //    //        case "left":
-        //    //            if (validJudge.leftWord.IndexOf("word") != -1 && validJudge.rightWord.IndexOf("state") != -1)
-        //    //            {
-        //    //                Debug.Log("out " + validJudge.leftWord.Split('_')[1] + " " + validJudge.rightWord.Split('_')[1]);
-        //    //                obj = GameObject.FindGameObjectsWithTag(validJudge.leftWord.Split('_')[1]);
-        //    //                for (int i = 0; i < obj.Length; i++)
-        //    //                {
-        //    //                    obj[i].GetComponent<PlayerCtrl>().ctrlState[validJudge.rightWord.Split('_')[1]] = false;
-        //    //                }
-        //    //            }
-        //    //            validJudge.leftWord = "none";
-        //    //            break;
-        //    //        case "down":
-        //    //            if (validJudge.upWord.IndexOf("word") != -1 && validJudge.downWord.IndexOf("state") != -1)
-        //    //            {
-        //    //                Debug.Log("out " + validJudge.upWord.Split('_')[1] + " " + validJudge.downWord.Split('_')[1]);
-        //    //                obj = GameObject.FindGameObjectsWithTag(validJudge.upWord.Split('_')[1]);
-        //    //                for (int i = 0; i < obj.Length; i++)
-        //    //                {
-        //    //                    obj[i].GetComponent<PlayerCtrl>().ctrlState[validJudge.downWord.Split('_')[1]] = false;
-        //    //                }
-        //    //            }
-        //    //            validJudge.downWord = "none";
-        //    //            break;
-        //    //        case "right":
-        //    //            if (validJudge.leftWord.IndexOf("word") != -1 && validJudge.rightWord.IndexOf("state") != -1)
-        //    //            {
-        //    //                Debug.Log("out " + validJudge.leftWord.Split('_')[1] + " " + validJudge.rightWord.Split('_')[1]);
-        //    //                obj = GameObject.FindGameObjectsWithTag(validJudge.leftWord.Split('_')[1]);
-        //    //                for (int i = 0; i < obj.Length; i++)
-        //    //                {
-        //    //                    obj[i].GetComponent<PlayerCtrl>().ctrlState[validJudge.rightWord.Split('_')[1]] = false;
-        //    //                }
-        //    //            }
-        //    //            validJudge.rightWord = "none";
-        //    //            break;
-        //    //    }
-        //    //}
-            
-        //    //if (other.gameObject.layer == 8 || other.gameObject.layer == 13)
-        //    //{
-        //    //    switch (Direct)
-        //    //    {
-        //    //        case "up":
-        //    //            validJudge.upMovable = true;
-        //    //            break;
-        //    //        case "left":
-        //    //            validJudge.leftMovable = true;
-        //    //            break;
-        //    //        case "right":
-        //    //            validJudge.rightMovable = true;
-        //    //            break;
-        //    //    }
-        //    //}
-        //}
-
 
     }
 

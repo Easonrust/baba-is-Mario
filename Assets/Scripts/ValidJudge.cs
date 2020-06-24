@@ -19,6 +19,23 @@ namespace JudgeTrigger
         public bool dealWithUpExit = false;
         public bool dealWithDownExit = false;
 
+        public void initWord()
+        {
+            Debug.Log("init");
+            leftWord = "none";
+            rightWord = "none";
+            upWord = "none";
+            downWord = "none";
+            upMovable = true;
+            leftMovable = true;
+            rightMovable = true;
+            downMovable = true;
+            dealWithLeftExit = false;
+            dealWithRightExit = false;
+            dealWithUpExit = false;
+            dealWithDownExit = false;
+        }
+
         private GameObject[] obj;
 
         // Start is called before the first frame update
@@ -26,7 +43,6 @@ namespace JudgeTrigger
         {
             
         }
-
         // Update is called once per frame
         void Update()
         {
