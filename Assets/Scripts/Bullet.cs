@@ -96,7 +96,7 @@ public class Bullet : MonoBehaviour
             }
 
         }
-        if(collision.gameObject.layer == 13|| collision.gameObject.layer == 8)
+        if(collision.gameObject.layer == 13|| collision.gameObject.layer == 8 || collision.gameObject.name == "boss")
         {
             Destroy(gameObject);
         }

@@ -223,7 +223,7 @@ public class GameManager5 : MonoBehaviour
             if (wording)
             {
                 timer_round += Time.deltaTime;
-                if (timer_round > 30.0f)
+                if (timer_round > 55.0f - round * 10.0)
                 {
                     wording = false;
                     GlobalVar.roundLose = true;

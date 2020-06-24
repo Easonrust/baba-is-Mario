@@ -139,6 +139,7 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if ((bool)ctrlState["you"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["win"])
         {
+            music.Play();
             BeWin();
         }
         if ((bool)ctrlState["you"] && collision.gameObject.layer == 9 && (bool)collision.gameObject.GetComponent<PlayerCtrl>().ctrlState["float"])
